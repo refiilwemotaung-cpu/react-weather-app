@@ -1,0 +1,174 @@
+/* Weather Styles */
+.weather-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+.city-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.current-temp {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.weather-feels-like,
+.weather-humidity,
+.weather-wind {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #34495e;
+}
+
+.weather-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-details {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.weather-icon-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  margin-left: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.weather-icon {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.weather-condition {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* Centered Layout */
+.centered-layout {
+  text-align: center;
+  padding: 30px;
+}
+
+.weather-main {
+  margin-bottom: 30px;
+}
+
+.weather-icon-large {
+  margin: 15px 0;
+}
+
+.weather-icon-large i {
+  font-size: 5rem;
+  color: #f39c12;
+}
+
+.weather-details-grid {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 20px;
+}
+
+.detail-item {
+  flex: 1;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #38598b;
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Weather-specific icon colors */
+.weather-icon-large .fa-cloud {
+  color: #7f8c8d;
+}
+
+.weather-icon-large .fa-cloud-rain {
+  color: #3498db;
+}
+
+.weather-icon-large .fa-snowflake {
+  color: #95a5a6;
+}
+
+.weather-icon-large .fa-bolt {
+  color: #f1c40f;
+}
+
+.weather-icon-large .fa-smog {
+  color: #95a5a6;
+}
+
+.datetime {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.datetime.card-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.card-time {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.card-weekday {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #eec60a;
+  margin: 0;
+}
+
+.card-full-date {
+  font-size: 1rem;
+  color: #e3f6f5;
+  margin: 5px 0 0;
+}
