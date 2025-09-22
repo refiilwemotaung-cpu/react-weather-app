@@ -1,0 +1,178 @@
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .temp-toggle,
+  .theme-toggle {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .weather-content {
+    flex-direction: column;
+  }
+
+  .weather-icon-container {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .weather-details {
+    padding-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .current-temp {
+    font-size: 2.5rem;
+  }
+
+  .city-name {
+    font-size: 1.5rem;
+  }
+
+  .centered-layout {
+    padding: 20px;
+  }
+
+  .city-name {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .current-temp {
+    font-size: 3rem;
+  }
+
+  .weather-icon-large i {
+    font-size: 4rem;
+  }
+
+  .weather-condition {
+    font-size: 1.2rem;
+  }
+
+  .weather-details-grid {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  /* Forecast responsiveness for mobile */
+  .forecast-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .forecast-card {
+    width: 100%;
+    max-width: 300px;
+    flex: 0 0 auto;
+  }
+
+  .card-time {
+    font-size: 1.8rem;
+  }
+
+  .card-full-date {
+    font-size: 1rem;
+  }
+
+  .datetime.card-style {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-time {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .forecast-card {
+    max-width: 100%;
+  }
+
+  .centered-forecast {
+    padding: 15px 10px;
+  }
+
+  .forecast-day {
+    font-size: 1rem;
+  }
+
+  .forecast-icon i {
+    font-size: 2rem;
+  }
+
+  .forecast-temp {
+    font-size: 1.2rem;
+  }
+
+  .forecast-condition {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-container {
+    padding: 15px;
+  }
+
+  .weather-card,
+  .forecast-card {
+    padding: 15px;
+  }
+
+  .current-temp {
+    font-size: 2.2rem;
+  }
+
+  .city-name {
+    font-size: 1.3rem;
+  }
+
+  .weather-icon-large i {
+    font-size: 3.5rem;
+  }
+}
+
+/* Desktop styles - ensure horizontal layout */
+@media (min-width: 769px) {
+  .forecast-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .forecast-card {
+    flex: 1;
+    min-width: 0;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+  .weather-details-grid {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+}
