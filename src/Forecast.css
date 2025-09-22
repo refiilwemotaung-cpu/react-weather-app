@@ -1,0 +1,114 @@
+/* Forecast Styles */
+.forecast-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 0; /* Allows cards to shrink evenly */
+  max-width: 180px;
+}
+
+.forecast-card:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Forecast Styles */
+.forecast-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.forecast-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.forecast-container .row {
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.forecast-container .forecast-card {
+  flex: 0 0 calc(20% - 15px);
+  min-width: 140px;
+  margin: 0 8px 15px;
+}
+
+.forecast-container .col-md-2 {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 0 8px;
+}
+
+/* Centered Forecast Cards */
+.centered-forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.forecast-day {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ececec;
+}
+
+.forecast-icon {
+  margin: 10px 0;
+}
+
+.forecast-icon i {
+  font-size: 2.5rem;
+}
+
+.forecast-temp {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #ececec;
+}
+
+.forecast-condition {
+  font-size: 0.9rem;
+  color: #e3f6f5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Weather-specific icon colors for forecast */
+.forecast-icon .fa-sun {
+  color: #f39c12;
+}
+
+.forecast-icon .fa-cloud {
+  color: #7f8c8d;
+}
+
+.forecast-icon .fa-cloud-rain {
+  color: #3498db;
+}
+
+.forecast-icon .fa-snowflake {
+  color: #95a5a6;
+}
+
+.forecast-icon .fa-bolt {
+  color: #f1c40f;
+}
+
+.forecast-icon .fa-smog {
+  color: #95a5a6;
+}
