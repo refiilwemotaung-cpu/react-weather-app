@@ -1,1 +1,80 @@
+/* Import the modular CSS files */
+@import "./DarkMode.css";
+@import "./Responsive.css";
+@import "./Forecast.css";
+@import "./Weather.css";
 
+/* App.css - Core Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.5s ease;
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  margin: 10px;
+  padding-bottom: 14px;
+  font-size: 45px;
+  color: white;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.app-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.temp-toggle,
+.theme-toggle {
+  cursor: pointer;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #e3f6f5;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  margin: 0 5px;
+  width: 140px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.datetime {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
