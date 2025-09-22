@@ -7,13 +7,20 @@ import UnitToggle from "./components/UnitToggle";
 import ThemeToggle from "./components/ThemeToggle";
 import SearchBar from "./components/SearchBar";
 
-if (!process.env.REACT_APP_OPENWEATHER_API_KEY) {
-  console.error("OpenWeatherMap API key is missing");
+// FIX 1: Update environment variable names to match what you set in Vercel
+const API_KEY =
+  process.env.REACT_APP_WEATHER_API_KEY ||
+  process.env.REACT_APP_OPENWEATHER_API_KEY;
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
+
+// FIX 2: Better error handling for missing API key
+if (!API_KEY) {
+  console.error(
+    "Weather API key is missing. Please check your environment variables."
+  );
 }
 
-if (!process.env.REACT_APP_OPENWEATHER_BASE_URL) {
-  console.error("OpenWeatherMap base URL is missing");
-}
+console.log("API Key available:", !!API_KEY); // Debug line
 
 const weatherBackgrounds = {
   Clear: "/images/weather-backgrounds/clear-sky.jpg",
@@ -43,9 +50,7 @@ function App() {
   const [timezoneOffset, setTimezoneOffset] = useState(0);
 
   // Add this useEffect to preload images
-
   useEffect(() => {
-    // Preload all background images
     Object.values(weatherBackgrounds).forEach((imageUrl) => {
       const img = new Image();
       img.src = imageUrl;
@@ -53,7 +58,6 @@ function App() {
   }, []);
 
   // Update time every second
-
   useEffect(() => {
     const timer = setInterval(() => {
       const utcNow = Date.now();
@@ -62,31 +66,46 @@ function App() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timezoneOffset]); // Add timezoneOffset as dependency
+  }, [timezoneOffset]);
 
-  // Fetch weather data function with useCallback to avoid recreation on every render
-
+  // FIX 3: Updated fetchWeatherData function with proper error handling
   const fetchWeatherData = useCallback(async (city) => {
     try {
       setLoading(true);
       setError(null);
 
+      // FIX 4: Use the correct API_KEY and BASE_URL variables
+      if (!API_KEY) {
+        throw new Error("API key not configured");
+      }
+
       const currentResponse = await fetch(
-        `${process.env.REACT_APP_OPENWEATHER_BASE_URL}/weather?q=${city}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`
+        `${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
 
+      // FIX 5: Better error handling for failed responses
       if (!currentResponse.ok) {
-        throw new Error("City not found");
+        const errorText = await currentResponse.text();
+        console.error("API Error Response:", errorText);
+
+        if (currentResponse.status === 401) {
+          throw new Error(
+            "Invalid API key. Please check your environment variables."
+          );
+        } else if (currentResponse.status === 404) {
+          throw new Error("City not found");
+        } else {
+          throw new Error(`API error: ${currentResponse.status}`);
+        }
       }
 
       const currentData = await currentResponse.json();
 
       // Set timezone offset from API response
-
       setTimezoneOffset(currentData.timezone);
 
       const forecastResponse = await fetch(
-        `${process.env.REACT_APP_OPENWEATHER_BASE_URL}/forecast?q=${city}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`
+        `${BASE_URL}/forecast?q=${city}&appid=${API_KEY}&units=metric`
       );
 
       if (!forecastResponse.ok) {
@@ -97,7 +116,6 @@ function App() {
       const dailyForecast = processForecastData(forecastData.list);
 
       // Update background based on weather condition
-
       const weatherCondition = currentData.weather[0].main;
       setBackgroundImage(
         weatherBackgrounds[weatherCondition] || weatherBackgrounds.Clear
@@ -117,13 +135,13 @@ function App() {
 
       setLoading(false);
     } catch (err) {
+      console.error("Fetch error details:", err);
       setError(err.message);
       setLoading(false);
     }
   }, []);
 
   // Update your time effect to use the timezone offset
-
   useEffect(() => {
     const timer = setInterval(() => {
       const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
@@ -135,7 +153,6 @@ function App() {
   }, [timezoneOffset]);
 
   // Fetch weather data on component mount
-
   useEffect(() => {
     fetchWeatherData("Johannesburg");
   }, [fetchWeatherData]);
@@ -165,7 +182,6 @@ function App() {
 
   const convertTemp = (temp) => {
     if (isCelsius) return temp;
-
     return Math.round((temp * 9) / 5 + 32);
   };
 
@@ -183,10 +199,8 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
     if (searchCity.trim()) {
       fetchWeatherData(searchCity);
-
       setSearchCity("");
     }
   };
@@ -205,7 +219,6 @@ function App() {
       <div className="container">
         <div className="controls">
           <UnitToggle isCelsius={isCelsius} toggleTempUnit={toggleTempUnit} />
-
           <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
 
