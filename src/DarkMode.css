@@ -1,0 +1,148 @@
+/* Dark Mode Styles */
+.dark-mode {
+  color: #f8f9fa;
+}
+
+.dark-mode::before {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark-mode .weather-card {
+  background: rgba(0, 0, 0, 0.4);
+  color: #f8f9fa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .forecast-card {
+  background: rgba(0, 0, 0, 0.3);
+  color: #f8f9fa;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .city-name,
+.dark-mode .current-temp,
+.dark-mode .detail-value,
+.dark-mode .forecast-day,
+.dark-mode .forecast-temp {
+  color: #ffffff;
+}
+
+.dark-mode .weather-feels-like,
+.dark-mode .weather-humidity,
+.dark-mode .weather-wind {
+  color: #e9ecef;
+}
+
+.dark-mode .weather-condition {
+  color: #dee2e6;
+}
+
+.dark-mode .detail-label {
+  color: #adb5bd;
+}
+
+.dark-mode .forecast-condition {
+  color: #ced4da;
+}
+
+.dark-mode .temp-toggle,
+.dark-mode .theme-toggle {
+  background: rgba(0, 0, 0, 0.4);
+  color: #f8f9fa;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .temp-toggle:hover,
+.dark-mode .theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .alert-danger {
+  background-color: rgba(220, 53, 69, 0.8);
+  border-color: rgba(220, 53, 69, 0.8);
+  color: #ffffff;
+}
+
+.dark-mode .form-control {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8f9fa;
+}
+
+.dark-mode .form-control:focus {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #f8f9fa;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .btn-primary {
+  background-color: rgba(13, 110, 253, 0.8);
+  border-color: rgba(13, 110, 253, 0.8);
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: rgba(13, 110, 253, 1);
+  border-color: rgba(13, 110, 253, 1);
+}
+
+/* Dark mode icon colors */
+.dark-mode .weather-icon-large .fa-sun {
+  color: #ffd43b;
+}
+
+.dark-mode .weather-icon-large .fa-cloud {
+  color: #adb5bd;
+}
+
+.dark-mode .weather-icon-large .fa-cloud-rain {
+  color: #74c0fc;
+}
+
+.dark-mode .weather-icon-large .fa-snowflake {
+  color: #e9ecef;
+}
+
+.dark-mode .weather-icon-large .fa-bolt {
+  color: #ffd43b;
+}
+
+.dark-mode .weather-icon-large .fa-smog {
+  color: #adb5bd;
+}
+
+.dark-mode .forecast-icon .fa-sun {
+  color: #ffd43b;
+}
+
+.dark-mode .forecast-icon .fa-cloud {
+  color: #adb5bd;
+}
+
+.dark-mode .forecast-icon .fa-cloud-rain {
+  color: #74c0fc;
+}
+
+.dark-mode .forecast-icon .fa-snowflake {
+  color: #e9ecef;
+}
+
+.dark-mode .forecast-icon .fa-bolt {
+  color: #ffd43b;
+}
+
+.dark-mode .forecast-icon .fa-smog {
+  color: #adb5bd;
+}
+
+.dark-mode .datetime {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .card-time {
+  color: #ecf0f1;
+}
+
+.dark-mode .card-full-date {
+  color: #bdc3c7;
+}
