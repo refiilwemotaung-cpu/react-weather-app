@@ -69,6 +69,10 @@
   color: #f8f9fa;
 }
 
+.dark-mode .form-control::placeholder {
+  color: #f8f9fa;
+}
+
 .dark-mode .form-control:focus {
   background-color: rgba(0, 0, 0, 0.4);
   border-color: rgba(255, 255, 255, 0.3);
