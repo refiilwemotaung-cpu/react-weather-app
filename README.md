@@ -1,5 +1,3 @@
-Title and Emoji
-
 # 🌦️ React Weather App
 
 Introduction
