@@ -47,6 +47,17 @@ function App() {
   );
   const [timezoneOffset, setTimezoneOffset] = useState(0);
 
+  // Temporary debug - add this inside your component
+  useEffect(() => {
+    if (weatherData && weatherData.current) {
+      console.log("Weather condition:", weatherData.current.weather);
+      console.log(
+        "Looking for background:",
+        weatherBackgrounds[weatherData.current.weather]
+      );
+    }
+  }, [weatherData]);
+
   // ADD THIS DEBUG EFFECT
   useEffect(() => {
     console.log("Current background image:", backgroundImage);
