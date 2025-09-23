@@ -13,11 +13,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build && npm run copy-images",
+    "copy-images": "cp -r public/images build/images/ || echo 'Images copied'",
+    "build:vercel": "npm run build && cp -r public/images build/images/ 2>/dev/null || true"
   },
   "eslintConfig": {
     "extends": [
