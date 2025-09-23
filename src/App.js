@@ -18,7 +18,7 @@ if (!API_KEY) {
   );
 }
 
-console.log("API Key available:", !!API_KEY); // Debug line
+console.log("API Key available:", !!API_KEY);
 
 const weatherBackgrounds = {
   Clear: "/images/weather-backgrounds/clear-sky.jpg",
@@ -82,13 +82,11 @@ function App() {
     return () => clearInterval(timer);
   }, [timezoneOffset]);
 
-  // FIX 3: Updated fetchWeatherData function with proper error handling
   const fetchWeatherData = useCallback(async (city) => {
     try {
       setLoading(true);
       setError(null);
 
-      // FIX 4: Use the correct API_KEY and BASE_URL variables
       if (!API_KEY) {
         throw new Error("API key not configured");
       }
@@ -97,7 +95,6 @@ function App() {
         `${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
 
-      // FIX 5: Better error handling for failed responses
       if (!currentResponse.ok) {
         const errorText = await currentResponse.text();
         console.error("API Error Response:", errorText);
