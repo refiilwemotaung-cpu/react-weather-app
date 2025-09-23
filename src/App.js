@@ -7,13 +7,11 @@ import UnitToggle from "./components/UnitToggle";
 import ThemeToggle from "./components/ThemeToggle";
 import SearchBar from "./components/SearchBar";
 
-// FIX 1: Update environment variable names to match what you set in Vercel
 const API_KEY =
   process.env.REACT_APP_WEATHER_API_KEY ||
   process.env.REACT_APP_OPENWEATHER_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
-// FIX 2: Better error handling for missing API key
 if (!API_KEY) {
   console.error(
     "Weather API key is missing. Please check your environment variables."
@@ -48,6 +46,22 @@ function App() {
     weatherBackgrounds.Clear
   );
   const [timezoneOffset, setTimezoneOffset] = useState(0);
+
+  // ADD THIS DEBUG EFFECT
+  useEffect(() => {
+    console.log("Current background image:", backgroundImage);
+    console.log("Full URL:", window.location.origin + backgroundImage);
+
+    // Test if image loads
+    const testImage = (url) => {
+      const img = new Image();
+      img.onload = () => console.log("✅ Image loaded:", url);
+      img.onerror = () => console.log("❌ Image failed:", url);
+      img.src = url;
+    };
+
+    testImage(window.location.origin + backgroundImage);
+  }, [backgroundImage]);
 
   // Add this useEffect to preload images
   useEffect(() => {
